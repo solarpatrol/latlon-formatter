@@ -1,0 +1,26 @@
+{
+  "name": "latlon-formatter",
+  "version": "0.1.0",
+  "description": "A set of functions to format latitude and longitude angles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solarpatrol/latlon-formatter.git"
+  },
+  "keywords": [
+    "latitude",
+    "longitude",
+    "angle",
+    "format",
+    "formatter"
+  ],
+  "author": "Dmitriy Pushkov <ezze@ezze.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solarpatrol/latlon-formatter/issues"
+  },
+  "homepage": "https://github.com/solarpatrol/latlon-formatter#readme"
+}
