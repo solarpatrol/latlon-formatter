@@ -43,7 +43,7 @@ var longitude = formatter.longitude(-33.4, {
     
     - `value` — angle's value;
     - `options`:
-        - `template` — custom template (optional, default — '{degree}° {prime}′ {doublePrime}″ {direction}');
+        - `template` — custom template (optional, default — `{degree}° {prime}′ {doublePrime}″ {direction}`);
         - `degrees` — specifies whether `value` is in degrees or in radians (optional, default — `false`);
         - `fixedCount` — count of precision digits (optional, default — `null` leaving precision as is).
 
@@ -71,7 +71,7 @@ var longitude = formatter.longitude(-33.4, {
     
     - `value` — angle's value;
     - `options`:
-        - `template` — custom template (optional, default — '{degree}° {prime}′ {doublePrime}″ {direction}');
+        - `template` — custom template (optional, default — `{degree}° {prime}′ {doublePrime}″ {direction}`);
         - `degrees` — specifies whether `value` is in degrees or in radians (optional, default — `false`);
         - `fixedCount` — count of precision digits (optional, default — `null` leaving precision as is).
 
@@ -99,7 +99,7 @@ var longitude = formatter.longitude(-33.4, {
     
     - `value` — angle's value;
     - `options`:
-        - `template` — custom template (optional, default — '{degree}° {prime}′ {doublePrime}″ {direction}');
+        - `template` — custom template (optional, default — `{negativeSign}{value}°`);
         - `degrees` — specifies whether `value` is in degrees or in radians (optional, default — `false`);
         - `fixedCount` — count of precision digits (optional, default — `null` leaving precision as is);
         - `customTokens` — an object or a function returning an object of additional custom tokens used in `template`.
