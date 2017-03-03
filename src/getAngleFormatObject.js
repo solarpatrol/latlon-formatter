@@ -16,9 +16,10 @@ export default function getAngleFormatObject(value, isDegrees) {
     const prime = (primes - doublePrime) / 60;
 
     return {
-        degree: degree,
-        prime: prime,
-        doublePrime: doublePrime,
-        sign: sign
+        value,
+        degree,
+        prime,
+        doublePrime,
+        sign
     };
 }

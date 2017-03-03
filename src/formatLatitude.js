@@ -1,9 +1,22 @@
 import getAngleFormatObject from './getAngleFormatObject';
+import prependChars from './prependChars';
+import formatByTemplate from './formatByTemplate';
 
-export default function formatLatitude(value, isDegrees) {
+const defaultTemplate = '{degree}° {prime}′ {doublePrime}″ {direction}';
+
+export default function formatLatitude(value, template, isDegrees) {
+    if (typeof template !== 'string') {
+        isDegrees = template;
+        template = defaultTemplate;
+    }
+
     const f = getAngleFormatObject(value, isDegrees);
-    return (f.degree < 10 ? '0' : '') + f.degree + '° ' +
-        (f.prime < 10 ? '0' : '') + f.prime + '′ ' +
-        (f.doublePrime < 10 ? '0' : '') + f.doublePrime + '″ ' +
-        (f.sign >= 0 ? 'N' : 'S');
+
+    return formatByTemplate(template, {
+        degree: prependChars(f.degree, 2, '0'),
+        prime: prependChars(f.prime, 2, '0'),
+        doublePrime: prependChars(f.doublePrime, 2, '0'),
+        sign: (f.sign > 0 ? '+' : (f.sign < 0 ? '—' : '')),
+        direction: f.sign >= 0 ? 'N' : 'S'
+    });
 }

@@ -41,6 +41,7 @@
     "babel-register": "^6.23.0",
     "browserify": "^14.1.0",
     "chai": "^3.5.0",
+    "chai-roughly": "^1.0.0",
     "coveralls": "^2.11.16",
     "eslint": "^3.16.1",
     "eslint-config-ezze": "0.0.3",

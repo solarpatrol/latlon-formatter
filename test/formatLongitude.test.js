@@ -2,63 +2,64 @@ import chai from 'chai';
 chai.should();
 
 import './getAngleFormatObject.test';
+import './prependChars.test';
 
 import formatLongitude from '../src/formatLongitude';
 
-describe('format latitude', () => {
-    it('zero latitude (radians)', () => {
+describe('format longitude', () => {
+    it('zero longitude (radians)', () => {
         formatLongitude(0).should.equal('000° 00′ 00″ E');
     });
 
-    it('zero latitude (degrees)', () => {
+    it('zero longitude (degrees)', () => {
         formatLongitude(0, true).should.equal('000° 00′ 00″ E');
     });
 
-    it('northern integer latitude (radians)', () => {
+    it('eastern integer longitude (radians)', () => {
         formatLongitude(Math.PI / 3).should.equal('060° 00′ 00″ E');
     });
 
-    it('northern integer latitude (degrees)', () => {
+    it('eastern integer longitude (degrees)', () => {
         formatLongitude(37, true).should.equal('037° 00′ 00″ E');
     });
 
-    it('southern integer latitude (radians)', () => {
+    it('western integer longitude (radians)', () => {
         formatLongitude(-Math.PI / 3).should.equal('060° 00′ 00″ W');
     });
 
-    it('southern integer latitude (degrees)', () => {
+    it('western integer longitude (degrees)', () => {
         formatLongitude(-37, true).should.equal('037° 00′ 00″ W');
     });
 
-    it('northern float latitude, integer prime (radians)', () => {
+    it('eastern float longitude, integer prime (radians)', () => {
         formatLongitude(Math.PI / 40).should.equal('004° 30′ 00″ E');
     });
 
-    it('northern float latitude, integer prime (degrees)', () => {
+    it('eastern float longitude, integer prime (degrees)', () => {
         formatLongitude(14.75, true).should.equal('014° 45′ 00″ E');
     });
 
-    it('southern float latitude, integer prime (radians)', () => {
+    it('western float longitude, integer prime (radians)', () => {
         formatLongitude(-Math.PI / 40).should.equal('004° 30′ 00″ W');
     });
 
-    it('southern integer latitude (degrees)', () => {
+    it('western integer longitude (degrees)', () => {
         formatLongitude(-14.75, true).should.equal('014° 45′ 00″ W');
     });
 
-    it('northern float latitude, float prime (radians)', () => {
+    it('eastern float longitude, float prime (radians)', () => {
         formatLongitude(Math.PI / 40 + Math.PI / 180 / 90).should.equal('004° 30′ 40″ E');
     });
 
-    it('northern float latitude, integer prime (degrees)', () => {
+    it('eastern float longitude, integer prime (degrees)', () => {
         formatLongitude(14.82, true).should.equal('014° 49′ 12″ E');
     });
 
-    it('southern float latitude, integer prime (radians)', () => {
+    it('western float longitude, integer prime (radians)', () => {
         formatLongitude(-Math.PI / 40 - Math.PI / 180 / 90).should.equal('004° 30′ 40″ W');
     });
 
-    it('southern integer latitude (degrees)', () => {
+    it('western integer longitude (degrees)', () => {
         formatLongitude(-14.82, true).should.equal('014° 49′ 12″ W');
     });
 });
