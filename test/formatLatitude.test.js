@@ -63,4 +63,16 @@ describe('format latitude', () => {
     it('southern integer latitude (degrees)', () => {
         formatLatitude(-14.82, true).should.equal('14° 49′ 12″ S');
     });
+
+    it('northern angle with custom template', () => {
+        const template = 'You can format positive latitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format positive latitude like +14.82 or 14.82.';
+        formatLatitude(14.82, template, true).should.equal(expected);
+    });
+
+    it('southern angle with custom template', () => {
+        const template = 'You can format negative latitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format negative latitude like —14.82 or —14.82.';
+        formatLatitude(-14.82, template, true).should.equal(expected);
+    });
 });

@@ -63,4 +63,16 @@ describe('format longitude', () => {
     it('western integer longitude (degrees)', () => {
         formatLongitude(-14.82, true).should.equal('014° 49′ 12″ W');
     });
+
+    it('eastern angle with custom template', () => {
+        const template = 'You can format positive longitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format positive longitude like +14.82 or 14.82.';
+        formatLongitude(14.82, template, true).should.equal(expected);
+    });
+
+    it('western angle with custom template', () => {
+        const template = 'You can format negative longitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format negative longitude like —14.82 or —14.82.';
+        formatLongitude(-14.82, template, true).should.equal(expected);
+    });
 });
