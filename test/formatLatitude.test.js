@@ -3,6 +3,7 @@ chai.should();
 
 import './getAngleFormatObject.test';
 import './prependChars.test';
+import './formatByTemplate.test';
 
 import formatLatitude from '../src/formatLatitude';
 
