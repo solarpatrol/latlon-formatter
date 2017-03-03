@@ -1,6 +1,6 @@
-export default function getAngleFormatObject(value, isDegrees) {
-    isDegrees = isDegrees || false;
-    if (!isDegrees) {
+export default function getAngleFormatObject(value, degrees) {
+    degrees = degrees || false;
+    if (!degrees) {
         value = value / Math.PI * 180;
     }
 
@@ -16,9 +16,10 @@ export default function getAngleFormatObject(value, isDegrees) {
     const prime = (primes - doublePrime) / 60;
 
     return {
-        degree: degree,
-        prime: prime,
-        doublePrime: doublePrime,
-        sign: sign
+        value,
+        degree,
+        prime,
+        doublePrime,
+        sign
     };
 }

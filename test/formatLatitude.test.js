@@ -1,7 +1,7 @@
 import chai from 'chai';
 chai.should();
 
-import './getAngleFormatObject.test';
+import './formatAngle.test';
 
 import formatLatitude from '../src/formatLatitude';
 
@@ -11,7 +11,9 @@ describe('format latitude', () => {
     });
 
     it('zero latitude (degrees)', () => {
-        formatLatitude(0, true).should.equal('00° 00′ 00″ N');
+        formatLatitude(0, {
+            degrees: true
+        }).should.equal('00° 00′ 00″ N');
     });
 
     it('northern integer latitude (radians)', () => {
@@ -19,7 +21,9 @@ describe('format latitude', () => {
     });
 
     it('northern integer latitude (degrees)', () => {
-        formatLatitude(37, true).should.equal('37° 00′ 00″ N');
+        formatLatitude(37, {
+            degrees: true
+        }).should.equal('37° 00′ 00″ N');
     });
 
     it('southern integer latitude (radians)', () => {
@@ -27,7 +31,9 @@ describe('format latitude', () => {
     });
 
     it('southern integer latitude (degrees)', () => {
-        formatLatitude(-37, true).should.equal('37° 00′ 00″ S');
+        formatLatitude(-37, {
+            degrees: true
+        }).should.equal('37° 00′ 00″ S');
     });
 
     it('northern float latitude, integer prime (radians)', () => {
@@ -35,7 +41,9 @@ describe('format latitude', () => {
     });
 
     it('northern float latitude, integer prime (degrees)', () => {
-        formatLatitude(14.75, true).should.equal('14° 45′ 00″ N');
+        formatLatitude(14.75, {
+            degrees: true
+        }).should.equal('14° 45′ 00″ N');
     });
 
     it('southern float latitude, integer prime (radians)', () => {
@@ -43,7 +51,9 @@ describe('format latitude', () => {
     });
 
     it('southern integer latitude (degrees)', () => {
-        formatLatitude(-14.75, true).should.equal('14° 45′ 00″ S');
+        formatLatitude(-14.75, {
+            degrees: true
+        }).should.equal('14° 45′ 00″ S');
     });
 
     it('northern float latitude, float prime (radians)', () => {
@@ -51,7 +61,9 @@ describe('format latitude', () => {
     });
 
     it('northern float latitude, integer prime (degrees)', () => {
-        formatLatitude(14.82, true).should.equal('14° 49′ 12″ N');
+        formatLatitude(14.82, {
+            degrees: true
+        }).should.equal('14° 49′ 12″ N');
     });
 
     it('southern float latitude, integer prime (radians)', () => {
@@ -59,6 +71,44 @@ describe('format latitude', () => {
     });
 
     it('southern integer latitude (degrees)', () => {
-        formatLatitude(-14.82, true).should.equal('14° 49′ 12″ S');
+        formatLatitude(-14.82, {
+            degrees: true
+        }).should.equal('14° 49′ 12″ S');
+    });
+
+    it('northern angle with custom template', () => {
+        const template = 'You can format positive latitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format positive latitude like +14.82 or 14.82.';
+        formatLatitude(14.82, {
+            template,
+            degrees: true
+        }).should.equal(expected);
+    });
+
+    it('southern angle with custom template', () => {
+        const template = 'You can format negative latitude like {sign}{value} or {negativeSign}{value}.';
+        const expected = 'You can format negative latitude like —14.82 or —14.82.';
+        formatLatitude(-14.82, {
+            template,
+            degrees: true
+        }).should.equal(expected);
+    });
+
+    it('northern angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLatitude(14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° N');
+    });
+
+    it('southern angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLatitude(-14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° S');
     });
 });

@@ -1,6 +1,6 @@
 {
   "name": "latlon-formatter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A set of functions to format latitude and longitude angles",
   "main": "lib/formatter.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "uglify": "uglifyjs -c warnings=false -o dist/formatter.min.js -- dist/formatter.js",
     "lint": "eslint ./src",
     "lint:test": "eslint -c .eslintrc.test.json ./test",
-    "test": "mocha --recursive --require babel-register -- test",
-    "test:coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "test": "mocha --recursive --require babel-register test",
+    "test:coverage": "istanbul cover _mocha -- --recursive --require babel-register test && cat ./coverage/lcov.info | coveralls",
     "prepublish": "npm run lint && npm run lint:test && npm test && npm run rebuild"
   },
   "repository": {
@@ -41,13 +41,17 @@
     "babel-register": "^6.23.0",
     "browserify": "^14.1.0",
     "chai": "^3.5.0",
+    "chai-roughly": "^1.0.0",
     "coveralls": "^2.11.16",
     "eslint": "^3.16.1",
     "eslint-config-ezze": "0.0.3",
+    "istanbul": "^1.0.0-alpha.2",
     "mkdirp": "^0.5.1",
     "mocha": "^3.2.0",
-    "nyc": "^10.1.2",
     "rimraf": "^2.6.1",
     "uglify-js": "^2.8.5"
+  },
+  "dependencies": {
+    "object-assign": "^4.1.1"
   }
 }
