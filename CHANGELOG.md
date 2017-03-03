@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.2.1
+
+- `.idea` and `coverage` directories are excluded from NPM package.
+
 ### 0.2.0
 
 - Test coverage is rewritten with [Istanbul](https://istanbul.js.org/);
