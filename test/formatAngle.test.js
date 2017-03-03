@@ -1,6 +1,10 @@
 import chai from 'chai';
 chai.should();
 
+import './getAngleFormatObject.test';
+import './prependChars.test';
+import './formatByTemplate.test';
+
 import formatAngle from '../src/formatAngle';
 
 describe('format angle', () => {

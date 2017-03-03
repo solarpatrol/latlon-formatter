@@ -1,9 +1,7 @@
 import chai from 'chai';
 chai.should();
 
-import './getAngleFormatObject.test';
-import './prependChars.test';
-import './formatByTemplate.test';
+import './formatAngle.test';
 
 import formatLongitude from '../src/formatLongitude';
 
