@@ -95,4 +95,22 @@ describe('format longitude', () => {
             degrees: true
         }).should.equal(expected);
     });
+
+    it('eastern angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLongitude(14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° E');
+    });
+
+    it('western angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLongitude(-14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° W');
+    });
 });

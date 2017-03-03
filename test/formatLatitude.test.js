@@ -95,4 +95,22 @@ describe('format latitude', () => {
             degrees: true
         }).should.equal(expected);
     });
+
+    it('northern angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLatitude(14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° N');
+    });
+
+    it('southern angle with custom template and 1 digit precision', () => {
+        const template = '{value}° {direction}';
+        formatLatitude(-14.82, {
+            template: template,
+            degrees: true,
+            fixedCount: 1
+        }).should.equal('14.8° S');
+    });
 });
