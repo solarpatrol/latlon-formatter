@@ -11,9 +11,10 @@
     "browserify": "mkdirp dist && browserify lib/formatter.js --standalone latlonFormatter -o dist/formatter.js -d",
     "uglify": "uglifyjs -c warnings=false -o dist/formatter.min.js -- dist/formatter.js",
     "lint": "eslint ./src",
-    "test": "eslint -c .eslintrc.test.json ./test && mocha --recursive --require babel-register -- test",
+    "lint:test": "eslint -c .eslintrc.test.json ./test",
+    "test": "mocha --recursive --require babel-register -- test",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run lint && npm test && npm run rebuild"
+    "prepublish": "npm run lint && npm run lint:test && npm test && npm run rebuild"
   },
   "repository": {
     "type": "git",
