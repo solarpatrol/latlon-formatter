@@ -10,7 +10,7 @@ describe('format angle', () => {
 
     it('zero (degrees)', () => {
         formatAngle(0, {
-            isDegrees: true
+            degrees: true
         }).should.equal('0°');
     });
 
@@ -20,7 +20,7 @@ describe('format angle', () => {
 
     it('positive integer (degrees)', () => {
         formatAngle(60, {
-            isDegrees: true
+            degrees: true
         }).should.equal('60°');
     });
 
@@ -30,7 +30,7 @@ describe('format angle', () => {
 
     it('negative integer (degrees)', () => {
         formatAngle(-60, {
-            isDegrees: true
+            degrees: true
         }).should.equal('—60°');
     });
 
@@ -40,7 +40,7 @@ describe('format angle', () => {
 
     it('positive float (degrees)', () => {
         formatAngle(4.5, {
-            isDegrees: true
+            degrees: true
         }).should.equal('5°');
     });
 
@@ -50,7 +50,7 @@ describe('format angle', () => {
 
     it('negative float (degrees)', () => {
         formatAngle(-4.5, {
-            isDegrees: true
+            degrees: true
         }).should.equal('—5°');
     });
 
@@ -62,7 +62,7 @@ describe('format angle', () => {
 
     it('positive float (degrees) with 3 digits precision', () => {
         formatAngle(4.5666, {
-            isDegrees: true,
+            degrees: true,
             fixedCount: 3
         }).should.equal('4.567°');
     });
@@ -75,7 +75,7 @@ describe('format angle', () => {
 
     it('negative float (degrees) with 3 digits precision', () => {
         formatAngle(-4.5666, {
-            isDegrees: true,
+            degrees: true,
             fixedCount: 3
         }).should.equal('—4.567°');
     });
@@ -85,7 +85,7 @@ describe('format angle', () => {
         const expected = '14° 49′ 12″';
         formatAngle(14.82, {
             template,
-            isDegrees: true
+            degrees: true
         }).should.equal(expected);
     });
 });

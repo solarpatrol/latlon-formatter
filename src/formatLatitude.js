@@ -4,13 +4,12 @@ import formatByTemplate from './formatByTemplate';
 
 const defaultTemplate = '{degree}° {prime}′ {doublePrime}″ {direction}';
 
-export default function formatLatitude(value, template, isDegrees) {
-    if (typeof template !== 'string') {
-        isDegrees = template;
-        template = defaultTemplate;
-    }
+export default function formatLatitude(value, options) {
+    options = options || {};
+    const template = typeof options.template === 'string' ? options.template : defaultTemplate;
+    const degrees = typeof options.degrees === 'boolean' ? options.degrees : false;
 
-    const f = getAngleFormatObject(value, isDegrees);
+    const f = getAngleFormatObject(value, degrees);
 
     return formatByTemplate(template, {
         value: f.value,

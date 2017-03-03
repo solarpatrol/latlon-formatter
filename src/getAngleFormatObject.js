@@ -1,6 +1,6 @@
-export default function getAngleFormatObject(value, isDegrees) {
-    isDegrees = isDegrees || false;
-    if (!isDegrees) {
+export default function getAngleFormatObject(value, degrees) {
+    degrees = degrees || false;
+    if (!degrees) {
         value = value / Math.PI * 180;
     }
 

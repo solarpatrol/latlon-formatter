@@ -7,10 +7,10 @@ const defaultTemplate = '{negativeSign}{value}°';
 export default function formatAngle(value, options) {
     options = options || {};
     const template = typeof options.template === 'string' ? options.template : defaultTemplate;
-    const isDegrees = typeof options.isDegrees === 'boolean' ? options.isDegrees : false;
+    const degrees = typeof options.degrees === 'boolean' ? options.degrees : false;
     const fixedCount = typeof options.fixedCount === 'number' ? options.fixedCount : 0;
 
-    const f = getAngleFormatObject(value, isDegrees);
+    const f = getAngleFormatObject(value, degrees);
 
     return formatByTemplate(template, {
         value: f.value.toFixed(fixedCount),

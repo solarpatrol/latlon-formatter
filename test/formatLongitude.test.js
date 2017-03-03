@@ -13,7 +13,9 @@ describe('format longitude', () => {
     });
 
     it('zero longitude (degrees)', () => {
-        formatLongitude(0, true).should.equal('000° 00′ 00″ E');
+        formatLongitude(0, {
+            degrees: true
+        }).should.equal('000° 00′ 00″ E');
     });
 
     it('eastern integer longitude (radians)', () => {
@@ -21,7 +23,9 @@ describe('format longitude', () => {
     });
 
     it('eastern integer longitude (degrees)', () => {
-        formatLongitude(37, true).should.equal('037° 00′ 00″ E');
+        formatLongitude(37, {
+            degrees: true
+        }).should.equal('037° 00′ 00″ E');
     });
 
     it('western integer longitude (radians)', () => {
@@ -29,7 +33,9 @@ describe('format longitude', () => {
     });
 
     it('western integer longitude (degrees)', () => {
-        formatLongitude(-37, true).should.equal('037° 00′ 00″ W');
+        formatLongitude(-37, {
+            degrees: true
+        }).should.equal('037° 00′ 00″ W');
     });
 
     it('eastern float longitude, integer prime (radians)', () => {
@@ -37,7 +43,9 @@ describe('format longitude', () => {
     });
 
     it('eastern float longitude, integer prime (degrees)', () => {
-        formatLongitude(14.75, true).should.equal('014° 45′ 00″ E');
+        formatLongitude(14.75, {
+            degrees: true
+        }).should.equal('014° 45′ 00″ E');
     });
 
     it('western float longitude, integer prime (radians)', () => {
@@ -45,7 +53,9 @@ describe('format longitude', () => {
     });
 
     it('western integer longitude (degrees)', () => {
-        formatLongitude(-14.75, true).should.equal('014° 45′ 00″ W');
+        formatLongitude(-14.75, {
+            degrees: true
+        }).should.equal('014° 45′ 00″ W');
     });
 
     it('eastern float longitude, float prime (radians)', () => {
@@ -53,7 +63,9 @@ describe('format longitude', () => {
     });
 
     it('eastern float longitude, integer prime (degrees)', () => {
-        formatLongitude(14.82, true).should.equal('014° 49′ 12″ E');
+        formatLongitude(14.82, {
+            degrees: true
+        }).should.equal('014° 49′ 12″ E');
     });
 
     it('western float longitude, integer prime (radians)', () => {
@@ -61,18 +73,26 @@ describe('format longitude', () => {
     });
 
     it('western integer longitude (degrees)', () => {
-        formatLongitude(-14.82, true).should.equal('014° 49′ 12″ W');
+        formatLongitude(-14.82, {
+            degrees: true
+        }).should.equal('014° 49′ 12″ W');
     });
 
     it('eastern angle with custom template', () => {
         const template = 'You can format positive longitude like {sign}{value} or {negativeSign}{value}.';
         const expected = 'You can format positive longitude like +14.82 or 14.82.';
-        formatLongitude(14.82, template, true).should.equal(expected);
+        formatLongitude(14.82, {
+            template,
+            degrees: true
+        }).should.equal(expected);
     });
 
     it('western angle with custom template', () => {
         const template = 'You can format negative longitude like {sign}{value} or {negativeSign}{value}.';
         const expected = 'You can format negative longitude like —14.82 or —14.82.';
-        formatLongitude(-14.82, template, true).should.equal(expected);
+        formatLongitude(-14.82, {
+            template,
+            degrees: true
+        }).should.equal(expected);
     });
 });
