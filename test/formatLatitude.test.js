@@ -1,1 +1,1 @@
-import formatLatitude from '../src/formatLatitude';
+//import formatLatitude from '../src/formatLatitude';
