@@ -17,7 +17,7 @@ npm install latlon-formatter --save
 - require with Node.js:
 
     ```javascript
-    var merge = require('latlon-formatter');
+    var formatter = require('latlon-formatter');
     ```
 
 - in browser include `dist/formatter.js` or `dist/formatter.min.js` script:
@@ -29,13 +29,9 @@ npm install latlon-formatter --save
 and then
 
 ```javascript    
-var latitude = formatter.latitude(Math.PI / 3);
-var longitude = formatter.longitude(33.4, true);
+var latitude = formatter.latitude(Math.PI / 3);     // => 60° 00′ 00″ N 
+var longitude = formatter.longitude(-33.4, true);   // => 034° 24′ 00″ W
 ```
-
-## Examples
-
-// TODO
                                         
 ## Building
 
