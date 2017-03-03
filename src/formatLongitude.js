@@ -8,11 +8,12 @@ export default function formatLatitude(value, options) {
     options = options || {};
     const template = typeof options.template === 'string' ? options.template : defaultTemplate;
     const degrees = typeof options.degrees === 'boolean' ? options.degrees : false;
+    const fixedCount = typeof options.fixedCount === 'number' ? options.fixedCount : null;
 
     const f = getAngleFormatObject(value, degrees);
 
     return formatByTemplate(template, {
-        value: f.value,
+        value: fixedCount !== null ? f.value.toFixed(fixedCount) : f.value,
         degree: prependChars(f.degree, 3, '0'),
         prime: prependChars(f.prime, 2, '0'),
         doublePrime: prependChars(f.doublePrime, 2, '0'),

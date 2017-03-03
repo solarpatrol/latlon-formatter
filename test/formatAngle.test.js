@@ -35,23 +35,23 @@ describe('format angle', () => {
     });
 
     it('positive float (radians)', () => {
-        formatAngle(Math.PI / 40).should.equal('5°');
+        formatAngle(Math.PI / 40).should.equal('4.5°');
     });
 
     it('positive float (degrees)', () => {
         formatAngle(4.5, {
             degrees: true
-        }).should.equal('5°');
+        }).should.equal('4.5°');
     });
 
     it('negative float (radians)', () => {
-        formatAngle(-Math.PI / 40).should.equal('—5°');
+        formatAngle(-Math.PI / 40).should.equal('—4.5°');
     });
 
     it('negative float (degrees)', () => {
         formatAngle(-4.5, {
             degrees: true
-        }).should.equal('—5°');
+        }).should.equal('—4.5°');
     });
 
     it('positive float (radians) with 3 digits precision', () => {
