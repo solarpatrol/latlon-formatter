@@ -1,6 +1,6 @@
 # latlon-formatter
 
-[![NPM Version](https://badge.fury.io/js/latlon-formatter.svg)](https://badge.fury.io/js/merge-professor)
+[![NPM Version](https://badge.fury.io/js/latlon-formatter.svg)](https://badge.fury.io/js/latlon-formatter.svg)
 [![Build Status](https://travis-ci.org/solarpatrol/latlon-formatter.svg?branch=dev)](https://travis-ci.org/solarpatrol/latlon-formatter)
 [![Coverage Status](https://coveralls.io/repos/github/solarpatrol/latlon-formatter/badge.svg)](https://coveralls.io/github/solarpatrol/latlon-formatter)
 
