@@ -164,9 +164,13 @@ Run unit tests:
     
     npm test
     
-In order to run tests with [Coveralls](http://coveralls.io) locally you have to provide `COVERALLS_REPO_TOKEN`:
+Run tests with coverage:
+
+    npm run test:coverage
     
-    COVERALLS_REPO_TOKEN=<token> npm run test:coverage
+In order to run tests with [Coveralls](http://coveralls.io) locally you have to provide `COVERALLS_REPO_TOKEN`:
+        
+    COVERALLS_REPO_TOKEN=<token> npm run test:coveralls
     
 ## Contributing
     
