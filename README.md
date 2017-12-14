@@ -3,7 +3,7 @@
 [![NPM Version](https://badge.fury.io/js/latlon-formatter.svg)](https://badge.fury.io/js/latlon-formatter.svg)
 [![Build Status](https://travis-ci.org/solarpatrol/latlon-formatter.svg?branch=develop)](https://travis-ci.org/solarpatrol/latlon-formatter)
 [![Coverage Status](https://coveralls.io/repos/github/solarpatrol/latlon-formatter/badge.svg?branch=develop)](https://coveralls.io/github/solarpatrol/latlon-formatter?branch=develop)
-[![Downloads/month](https://img.shields.io/npm/dm/dissemination.svg?maxAge=86400)](https://www.npmjs.com/package/dissemination)
+[![Downloads/month](https://img.shields.io/npm/dm/latlon-formatter.svg?maxAge=86400)](https://www.npmjs.com/package/latlon-formatter)
 [![Greenkeeper badge](https://badges.greenkeeper.io/solarpatrol/latlon-formatter.svg)](https://greenkeeper.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
