@@ -1,20 +1,25 @@
 {
   "name": "latlon-formatter",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A set of functions to format latitude and longitude angles",
-  "main": "lib/formatter.js",
+  "main": "lib/index.js",
+  "jsnext:main": "dist/latlon-formatter.es.js",
+  "module": "dist/latlon-formatter.es.js",
   "scripts": {
-    "clean": "rimraf lib dist",
-    "build": "npm run transpile && npm run browserify && npm run uglify",
-    "rebuild": "npm run clean && npm run build",
+    "build": "rimraf lib dist && npm run transpile && npm run dist",
     "transpile": "babel src -d lib",
-    "browserify": "mkdirp dist && browserify lib/formatter.js --standalone latlonFormatter -o dist/formatter.js -d",
-    "uglify": "uglifyjs -c warnings=false -o dist/formatter.min.js -- dist/formatter.js",
+    "dist": "npm run dist:es && npm run dist:umd:dev && npm run dist:umd:prod",
+    "dist:es": "rollup --config rollup.config.es.js",
+    "dist:umd": "rollup --config rollup.config.js",
+    "dist:umd:dev": "cross-env NODE_ENV=development npm run dist:umd",
+    "dist:umd:prod": "cross-env NODE_ENV=production npm run dist:umd",
+    "watch:es": "node --require babel-register rollup.watch.es.js",
     "lint": "eslint ./src",
-    "lint:test": "eslint -c .eslintrc.test.json ./test",
+    "lint:test": "eslint -c test/.eslintrc.json ./test",
     "test": "mocha --recursive --require babel-register test",
-    "test:coverage": "istanbul cover _mocha -- --recursive --require babel-register test && cat ./coverage/lcov.info | coveralls",
-    "prepublish": "npm run lint && npm run lint:test && npm test && npm run rebuild"
+    "test:coverage": "istanbul cover _mocha -- --recursive --require babel-register test",
+    "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls",
+    "prepublishOnly": "npm run lint && npm run lint:test && npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -33,25 +38,31 @@
     "url": "https://github.com/solarpatrol/latlon-formatter/issues"
   },
   "homepage": "https://github.com/solarpatrol/latlon-formatter#readme",
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.22.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-register": "^6.23.0",
-    "browserify": "^14.1.0",
     "chai": "^4.1.2",
     "chai-roughly": "^1.0.0",
+    "chokidar": "^1.7.0",
     "coveralls": "^3.0.0",
+    "cross-env": "^5.1.1",
     "eslint": "^4.12.0",
-    "eslint-config-ezze": "0.3.0",
+    "eslint-config-ezze": "^0.3.0",
     "istanbul": "^1.0.0-alpha.2",
     "mkdirp": "^0.5.1",
     "mocha": "^4.0.1",
     "rimraf": "^2.6.1",
-    "uglify-js": "^3.2.0"
-  },
-  "dependencies": {
-    "object-assign": "^4.1.1"
+    "rollup": "^0.52.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "uglify-es": "^3.2.2"
   }
 }
