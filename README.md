@@ -1,9 +1,11 @@
 # latlon-formatter
 
 [![NPM Version](https://badge.fury.io/js/latlon-formatter.svg)](https://badge.fury.io/js/latlon-formatter.svg)
-[![Build Status](https://travis-ci.org/solarpatrol/latlon-formatter.svg?branch=dev)](https://travis-ci.org/solarpatrol/latlon-formatter)
-[![Coverage Status](https://coveralls.io/repos/github/solarpatrol/latlon-formatter/badge.svg)](https://coveralls.io/github/solarpatrol/latlon-formatter)
+[![Build Status](https://travis-ci.org/solarpatrol/latlon-formatter.svg?branch=develop)](https://travis-ci.org/solarpatrol/latlon-formatter)
+[![Coverage Status](https://coveralls.io/repos/github/solarpatrol/latlon-formatter/badge.svg?branch=develop)](https://coveralls.io/github/solarpatrol/latlon-formatter?branch=develop)
+[![Downloads/month](https://img.shields.io/npm/dm/dissemination.svg?maxAge=86400)](https://www.npmjs.com/package/dissemination)
 [![Greenkeeper badge](https://badges.greenkeeper.io/solarpatrol/latlon-formatter.svg)](https://greenkeeper.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A set of functions to format latitude and longitude angles.
 
@@ -15,26 +17,35 @@ npm install latlon-formatter --save
     
 ## Usage
 
+- ES6:
+
+    ```javascript
+    import { formatLatitude, formatLongitude } from 'latlon-formatter';
+    const latitude = formatLatitude(Math.PI / 3); // => 60° 00′ 00″ N 
+    const longitude = formatLongitude(-33.4, {
+        degrees: true
+    });   // => 034° 24′ 00″ W 
+    ```
+
 - require with Node.js:
 
     ```javascript
     var formatter = require('latlon-formatter');
+    var latitude = formatter.latitude(Math.PI / 3); // => 60° 00′ 00″ N 
+    var longitude = formatter.longitude(-33.4, {
+        degrees: true
+    });   // => 034° 24′ 00″ W
     ```
 
-- in browser include `dist/formatter.js` or `dist/formatter.min.js` script:
+- in browser include `dist/latlon-formatter.js` or `dist/latlon-formatter.min.js` script:
 
     ```javascript
     var formatter = window.latlonFormatter;
+    var latitude = formatter.latitude(Math.PI / 3); // => 60° 00′ 00″ N 
+    var longitude = formatter.longitude(-33.4, {
+        degrees: true
+    });   // => 034° 24′ 00″ W
     ```
-    
-and then
-
-```javascript    
-var latitude = formatter.latitude(Math.PI / 3); // => 60° 00′ 00″ N 
-var longitude = formatter.longitude(-33.4, {
-    degrees: true
-});   // => 034° 24′ 00″ W
-```
     
 ## Methods
 
@@ -157,9 +168,9 @@ In order to run tests with [Coveralls](http://coveralls.io) locally you have to 
     
     COVERALLS_REPO_TOKEN=<token> npm run test:coverage
     
-## Contribution
+## Contributing
     
-Before making a pull request, please, be sure that your changes are rebased to `dev` branch.
+Before making a pull request, please, be sure that you start from `develop` branch.
 
 ## License
 

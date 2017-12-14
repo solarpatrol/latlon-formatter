@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.3.0
+
+- [Rollup](https://rollupjs.org/) is used to build the library for multiple targets.
+
 ### 0.2.1
 
 - `.idea` and `coverage` directories are excluded from NPM package.
